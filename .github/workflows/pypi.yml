@@ -41,7 +41,7 @@ jobs:
         if-no-files-found: error
 
   build_stubs_windows:
-    name: Build FMX Stubs
+    name: Build FMX Stubs for Windows
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -77,7 +77,7 @@ jobs:
         key: ${{ runner.os }}-stubs
 
   build_stubs_linux:
-    name: Build FMX Stubs
+    name: Build FMX Stubs for Linux
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -92,17 +92,17 @@ jobs:
 
     - name: Build and Install FMX
       run: |
-        python -m pip install setuptools --upgrade
-        python -m pip install wheel --upgrade                
-        python setup.py install
+        python3 -m pip install setuptools --upgrade
+        python3 -m pip install wheel --upgrade                
+        python3 setup.py install
 
     - name: Install mypy
       run: |
-        python -m pip install git+https://github.com/lmbelo/mypy.git
+        python3 -m pip install git+https://github.com/lmbelo/mypy.git
 
     - name: Build Stubs
       run: |
-        python -m mypy.stubgen -m delphifmx -o .\delphifmx --include-docstrings
+        python3 -m mypy.stubgen -m delphifmx -o .\delphifmx --include-docstrings
         mv .\delphifmx\delphifmx.pyi .\delphifmx\__init__.pyi
 
     - name: Cache Stubs
@@ -113,7 +113,7 @@ jobs:
         key: ${{ runner.os }}-stubs
 
   build_stubs_macos:
-    name: Build FMX Stubs
+    name: Build FMX Stubs MacOS
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -128,17 +128,17 @@ jobs:
 
     - name: Build and Install FMX
       run: |
-        python -m pip install setuptools --upgrade
-        python -m pip install wheel --upgrade                
-        python setup.py install
+        python3 -m pip install setuptools --upgrade
+        python3 -m pip install wheel --upgrade                
+        python3 setup.py install
 
     - name: Install mypy
       run: |
-        python -m pip install git+https://github.com/lmbelo/mypy.git
+        python3 -m pip install git+https://github.com/lmbelo/mypy.git
 
     - name: Build Stubs
       run: |
-        python -m mypy.stubgen -m delphifmx -o .\delphifmx --include-docstrings
+        python3 -m mypy.stubgen -m delphifmx -o .\delphifmx --include-docstrings
         mv .\delphifmx\delphifmx.pyi .\delphifmx\__init__.pyi
 
     - name: Cache Stubs
