@@ -150,6 +150,7 @@ jobs:
 
   build_wheels_win_32:
     name: Build Windows x86 wheels for Python ${{ matrix.python }}
+    needs: [build_stubs_windows]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -195,6 +196,7 @@ jobs:
 
   build_wheels_win_64:
     name: Build Windows x64 wheels for Python ${{ matrix.python }}
+    needs: [build_stubs_windows]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -240,6 +242,7 @@ jobs:
 
   build_wheels_manylinux:
     name: Build ManyLinux x86_64 wheels for Python ${{ matrix.python }}
+    needs: [build_stubs_linux]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -284,6 +287,7 @@ jobs:
 
   build_wheels_macos:
     name: Build x86_64 macOS wheels for Python ${{ matrix.python }}
+    needs: [build_stubs_macos]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -328,6 +332,7 @@ jobs:
 
   build_wheels_macos_arm:
     name: Build arm64 macOS wheels for Python ${{ matrix.python }}
+    needs: [build_stubs_macos]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
