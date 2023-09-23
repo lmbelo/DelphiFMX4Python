@@ -62,7 +62,7 @@ jobs:
 
     - name: Install mypy
       run: |
-        sudo python -m pip install git+https://github.com/lmbelo/mypy.git
+       python -m pip install git+https://github.com/lmbelo/mypy.git
 
     - name: Build Stubs
       run: |
@@ -90,6 +90,11 @@ jobs:
     - name: Check out repository
       uses: actions/checkout@v3
 
+    - name: Set up Python ${{ matrix.python }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python }}     
+
     - name: Build and Install FMX
       run: |
         python3 -m pip install setuptools --upgrade
@@ -98,7 +103,7 @@ jobs:
 
     - name: Install mypy
       run: |
-        python3 -m pip install git+https://github.com/lmbelo/mypy.git
+        sudo python3 -m pip install git+https://github.com/lmbelo/mypy.git
 
     - name: Build Stubs
       run: |
@@ -125,6 +130,11 @@ jobs:
     steps:
     - name: Check out repository
       uses: actions/checkout@v3
+
+    - name: Set up Python ${{ matrix.python }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python }}     
 
     - name: Build and Install FMX
       run: |
