@@ -270,7 +270,7 @@ jobs:
       id: cache-stubs
       uses: actions/cache@v3
       with:
-        path: .\delphifmx\__init__.pyi
+        path: ./delphifmx/__init__.pyi
         key: ${{ runner.os }}-stubs
 
     - name: Check Stubs
