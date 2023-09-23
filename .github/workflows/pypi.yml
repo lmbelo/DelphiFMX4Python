@@ -103,7 +103,7 @@ jobs:
 
     - name: Install mypy
       run: |
-        sudo python3 -m pip install git+https://github.com/lmbelo/mypy.git
+        python3 -m pip install git+https://github.com/lmbelo/mypy.git
 
     - name: Build Stubs
       run: |
