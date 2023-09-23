@@ -97,17 +97,17 @@ jobs:
 
     - name: Build and Install FMX
       run: |
-        python3 -m pip install setuptools --upgrade
-        python3 -m pip install wheel --upgrade                
-        python3 setup.py install
+        python -m pip install setuptools --upgrade
+        python -m pip install wheel --upgrade                
+        python setup.py install
 
     - name: Install mypy
       run: |
-        python3 -m pip install git+https://github.com/lmbelo/mypy.git
+        python -m pip install git+https://github.com/lmbelo/mypy.git
 
     - name: Build Stubs
       run: |
-        python3 -m mypy.stubgen -m delphifmx -o ./delphifmx --include-docstrings
+        python -m mypy.stubgen -m delphifmx -o ./delphifmx --include-docstrings
         mv ./delphifmx/delphifmx.pyi ./delphifmx/__init__.pyi
 
     - name: Cache Stubs
@@ -138,24 +138,24 @@ jobs:
 
     - name: Build and Install FMX
       run: |
-        python3 -m pip install setuptools --upgrade
-        python3 -m pip install wheel --upgrade                
-        python3 setup.py install
+        python -m pip install setuptools --upgrade
+        python -m pip install wheel --upgrade                
+        python setup.py install
 
     - name: Install mypy
       run: |
-        python3 -m pip install git+https://github.com/lmbelo/mypy.git
+        python -m pip install git+https://github.com/lmbelo/mypy.git
 
     - name: Build Stubs
       run: |
-        python3 -m mypy.stubgen -m delphifmx -o .\delphifmx --include-docstrings
+        python -m mypy.stubgen -m delphifmx -o ./delphifmx --include-docstrings
         mv delphifmx/delphifmx.pyi delphifmx/__init__.pyi
 
     - name: Cache Stubs
       id: cache-stubs
       uses: actions/cache@v3
       with:
-        path: .\delphifmx\__init__.pyi
+        path: ./delphifmx/__init__.pyi
         key: ${{ runner.os }}-stubs 
 
   build_wheels_win_32:
