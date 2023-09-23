@@ -108,7 +108,7 @@ jobs:
     - name: Build Stubs
       run: |
         python3 -m mypy.stubgen -m delphifmx -o .\delphifmx --include-docstrings
-        mv .\delphifmx\delphifmx.pyi .\delphifmx\__init__.pyi
+        mv ./delphifmx/delphifmx.pyi ./delphifmx/__init__.pyi
 
     - name: Cache Stubs
       id: cache-stubs
@@ -149,7 +149,7 @@ jobs:
     - name: Build Stubs
       run: |
         python3 -m mypy.stubgen -m delphifmx -o .\delphifmx --include-docstrings
-        mv .\delphifmx\delphifmx.pyi .\delphifmx\__init__.pyi
+        mv ./delphifmx/delphifmx.pyi ./delphifmx/__init__.pyi
 
     - name: Cache Stubs
       id: cache-stubs
