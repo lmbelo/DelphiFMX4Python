@@ -84,7 +84,7 @@ jobs:
         path: ./delphifmx/__init__.pyi
         key: ${{ runner.os }}-stubs
 
-#mypy times-out on MacOS
+  #mypy times-out on MacOS
   build_stubs_macos:
     name: Build FMX Stubs MacOS
     runs-on: ${{ matrix.os }}
@@ -92,7 +92,7 @@ jobs:
       matrix:
         python: ['3.11']
         include:
-          - os: [macos-latest]
+          - os: [ubuntu-latest]
             arch: ["x86_64"]
 
     steps:
@@ -124,7 +124,8 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ./delphifmx/__init__.pyi
-        key: ${{ runner.os }}-stubs
+        key: Mac-stubs
+        enableCrossOsArchive: true
 
   #This build makes delphifmx available for Android
   build_universal_wheel:
@@ -317,7 +318,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: .\delphifmx\__init__.pyi
-        key: Linux-stubs
+        key: Mac-stubs
         enableCrossOsArchive: true
 
     - name: Check Stubs
