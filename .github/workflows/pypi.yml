@@ -84,7 +84,6 @@ jobs:
         path: ./delphifmx/__init__.pyi
         key: ${{ runner.os }}-stubs
 
-  #mypy times-out on MacOS
   build_stubs_macos:
     name: Build FMX Stubs MacOS
     runs-on: ${{ matrix.os }}
@@ -124,7 +123,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ./delphifmx/__init__.pyi
-        key: Mac-stubs
+        key: ${{ runner.os }}-stubs
         enableCrossOsArchive: true
 
   #This build makes delphifmx available for Android
