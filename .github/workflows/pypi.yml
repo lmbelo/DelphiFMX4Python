@@ -318,6 +318,7 @@ jobs:
       with:
         path: .\delphifmx\__init__.pyi
         key: Linux-stubs
+        enableCrossOsArchive: true
 
     - name: Check Stubs
       run: |
@@ -363,6 +364,7 @@ jobs:
       with:
         path: .\delphifmx\__init__.pyi
         key: Linux-stubs
+        enableCrossOsArchive: true
 
     - name: Check Stubs
       run: |
