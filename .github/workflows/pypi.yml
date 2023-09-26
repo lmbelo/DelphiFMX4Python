@@ -116,7 +116,7 @@ jobs:
 
     - name: Build Stubs
       run: |
-        python -m mypy.stubgen -m delphifmx -o ./delphifmx --include-docstrings
+        python3 -c "import mypy.stubgen; mypy.stubgen.main(['-m', 'delphifmx', '-o', './delphifmx', '--include-docstrings'])"
         mv delphifmx/delphifmx.pyi delphifmx/__init__.pyi
 
     - name: Cache Stubs
@@ -318,8 +318,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: .\delphifmx\__init__.pyi
-        key: Mac-stubs
-        enableCrossOsArchive: true
+        key: ${{ runner.os }}-stubs 
 
     - name: Check Stubs
       run: |
@@ -364,8 +363,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: .\delphifmx\__init__.pyi
-        key: Mac-stubs
-        enableCrossOsArchive: true
+        key: ${{ runner.os }}-stubs
 
     - name: Check Stubs
       run: |
