@@ -298,7 +298,7 @@ jobs:
 
   build_wheels_macos:
     name: Build x86_64 macOS wheels for Python ${{ matrix.python }}
-    needs: [build_stubs_macos]
+    needs: [build_stubs_linux]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -343,7 +343,7 @@ jobs:
 
   build_wheels_macos_arm:
     name: Build arm64 macOS wheels for Python ${{ matrix.python }}
-    needs: [build_stubs_macos]
+    needs: [build_stubs_linux]
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
