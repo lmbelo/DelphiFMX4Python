@@ -84,7 +84,7 @@ jobs:
         path: ./delphifmx/__init__.pyi
         key: ${{ runner.os }}-stubs
 
- mypy times-out on MacOS
+#mypy times-out on MacOS
   build_stubs_macos:
     name: Build FMX Stubs MacOS
     runs-on: ${{ matrix.os }}
