@@ -115,7 +115,7 @@ jobs:
 
     - name: Build Stubs
       run: |
-        python3 -c "import mypy.stubgen; mypy.stubgen.main(['-m', 'delphifmx', '-o', './delphifmx', '--include-docstrings'])"
+        python3 -c "import mypy.stubgen; mypy.stubgen.main(['-p', 'delphifmx', '-o', './delphifmx', '--include-docstrings'])"
         mv delphifmx/delphifmx.pyi delphifmx/__init__.pyi
 
     - name: Cache Stubs
