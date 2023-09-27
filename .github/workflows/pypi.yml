@@ -91,7 +91,7 @@ jobs:
       matrix:
         python: ['3.11']
         include:
-          - os: [macos-latest]
+          - os: [windows-latest]
             arch: ["x86_64"]
 
     steps:
@@ -115,7 +115,7 @@ jobs:
 
     - name: Build Stubs
       run: |
-        python3 -c "import mypy.stubgen; mypy.stubgen.main(['-p', 'delphifmx', '-o', './delphifmx', '--include-docstrings'])"
+        python -m mypy.stubgen -m delphifmx -o ./delphifmx --include-docstrings
         mv delphifmx/delphifmx.pyi delphifmx/__init__.pyi
 
     - name: Cache Stubs
@@ -123,7 +123,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ./delphifmx/__init__.pyi
-        key: ${{ runner.os }}-stubs
+        key: Windows-stubs
         enableCrossOsArchive: true
 
   #This build makes delphifmx available for Android
@@ -317,7 +317,8 @@ jobs:
       uses: actions/cache@v3
       with:
         path: .\delphifmx\__init__.pyi
-        key: ${{ runner.os }}-stubs 
+        key: Windows-stubs
+        enableCrossOsArchive: true
 
     - name: Check Stubs
       run: |
@@ -362,7 +363,8 @@ jobs:
       uses: actions/cache@v3
       with:
         path: .\delphifmx\__init__.pyi
-        key: ${{ runner.os }}-stubs
+        key: Windows-stubs
+        enableCrossOsArchive: true
 
     - name: Check Stubs
       run: |
