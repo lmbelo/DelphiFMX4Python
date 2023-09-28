@@ -91,7 +91,7 @@ jobs:
       matrix:
         python: ['3.11']
         include:
-          - os: [windows-latest]
+          - os: [ubuntu-latest]
             arch: ["x86_64"]
 
     steps:
@@ -123,7 +123,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ./delphifmx/__init__.pyi
-        key: Windows-stubs
+        key: Linux-stubs
         enableCrossOsArchive: true
 
   #This build makes delphifmx available for Android
@@ -316,8 +316,8 @@ jobs:
       id: cache-stubs
       uses: actions/cache@v3
       with:
-        path: .\delphifmx\__init__.pyi
-        key: Windows-stubs
+        path: ./delphifmx/__init__.pyi
+        key: Linux-stubs
         enableCrossOsArchive: true
 
     - name: Check Stubs
