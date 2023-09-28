@@ -123,7 +123,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ./delphifmx/__init__.pyi
-        key: Linux-stubs
+        key: Macos-stubs
         enableCrossOsArchive: true
 
   #This build makes delphifmx available for Android
@@ -317,7 +317,7 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ./delphifmx/__init__.pyi
-        key: Linux-stubs
+        key: Macos-stubs
         enableCrossOsArchive: true
 
     - name: Check Stubs
